@@ -53,7 +53,7 @@ public class VeloxCacheManagement
     
    public static func createDirectoryNamed(name : URL) -> Bool {
         
-        let directory = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0])
+        let directory = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
         
         
         do {
@@ -67,7 +67,7 @@ public class VeloxCacheManagement
     
    public static func cachesDirectoryURlPath() -> URL {
         
-        let cachesDirectoryURLPath = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0])
+        let cachesDirectoryURLPath = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
         
         return cachesDirectoryURLPath
     }
@@ -98,7 +98,7 @@ public class VeloxCacheManagement
         return self.isFileDownloadingWithURL(url: url, progress: progress,completion: nil)
     }
     
-    public static func isFileDownloadingWithURL(url : URL,progress : ((CGFloat,VeloxDownloadInstance)->())?,completion: ((Bool)-> ())?) -> Bool {
+    public static func isFileDownloadingWithURL(url : URL,progress : ((CGFloat,VeloxDownloadInstance)->())?,completion: ((Bool, String? , Error?)-> ())?) -> Bool {
         var flag = false
         
         if(VeloxDownloadManager.downloadInstanceDictionary != nil)
@@ -162,14 +162,13 @@ public class VeloxCacheManagement
     public static func cleanTempDirectory() -> Void {
         do
         {
-            let tempDir = try FileManager.default.contentsOfDirectory(atPath: NSTemporaryDirectory())
+            let tempDir = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory())
             
             for file in tempDir
             {
                 print("Deleted file named : \(file) from the temp folder")
-                try FileManager.default.removeItem(atPath: NSTemporaryDirectory().appending(file))
+                try FileManager.default.removeItem(atPath: NSHomeDirectory().appending(file))
             }
-            
             
         }
         catch let error as NSError

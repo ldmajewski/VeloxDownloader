@@ -15,7 +15,7 @@ public class VeloxDownloadInstance : NSObject
     
    public typealias remainingDownloadTime = ((CGFloat) -> (Void))?
    public typealias currentProgressStat = ((CGFloat,VeloxDownloadInstance) -> (Void))?
-   public typealias isDownloadCompleted = ((Bool) -> (Void))?
+   public typealias isDownloadCompleted = ((Bool, String?, Error?) -> (Void))?
     
     
     public var remainingTimeClosure : remainingDownloadTime

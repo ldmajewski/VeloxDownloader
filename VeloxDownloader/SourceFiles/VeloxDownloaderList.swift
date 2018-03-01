@@ -119,9 +119,9 @@ public class VeloxDownloaderList: UIViewController,UITableViewDelegate,UITableVi
 
                 
             }
-            let completionClosure: (Bool) -> () = { (completion) in
+            let completionClosure: (Bool, String?, Error?) -> () = { (completion) in
                 print("is Download completed : \(completion)")
-                if(completion)
+                if(completion.0)
                 {
                     do
                     {
