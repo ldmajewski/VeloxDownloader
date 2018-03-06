@@ -219,7 +219,10 @@ public class VeloxDownloadManager : NSObject,URLSessionDelegate,URLSessionDownlo
     
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
+
         
         //print("data written \(totalBytesWritten)")
         let fileIdentifier  = downloadTask.originalRequest!.url!.lastPathComponent
