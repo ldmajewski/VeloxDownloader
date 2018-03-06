@@ -307,10 +307,12 @@ public class VeloxDownloadManager : NSObject,URLSessionDelegate,URLSessionDownlo
     
     
     
-   public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         debugPrint("Task completed: \(task), error: \(error)")
         print("Task completed: \(task), error: \(error)")
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
     }
     
     
