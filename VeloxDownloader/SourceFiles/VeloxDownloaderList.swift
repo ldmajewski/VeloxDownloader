@@ -101,8 +101,8 @@ public class VeloxDownloaderList: UIViewController,UITableViewDelegate,UITableVi
         let cellProgressBar : UIProgressView
         cellLabel = cell.contentView.viewWithTag(100) as! UILabel
         cellProgressBar = cell.contentView.viewWithTag(200) as! UIProgressView
-        cellProgressBar.transform = CGAffineTransform(scaleX: 1, y: 8)
-        cellProgressBar.layer.cornerRadius = 8
+//        cellProgressBar.transform = CGAffineTransform(scaleX: 1, y: 8)
+//        cellProgressBar.layer.cornerRadius = 8
         
         let downloadItem  = self.downloadListArray[indexPath.row]
         
