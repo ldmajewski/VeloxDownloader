@@ -24,7 +24,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="424" height="89.666666666666671"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <progressView opaque="NO" clipsSubviews="YES" tag="200" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cxm-XB-w6w">
+                    <progressView opaque="NO" clipsSubviews="YES" tag="200" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cxm-XB-w6w">
                         <rect key="frame" x="20" y="63" width="384" height="2"/>
                         <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                         <color key="progressTintColor" red="0.8666666666666667" green="0.098039215686274508" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,13 +52,13 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Cxm-XB-w6w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CRU-5p-emH"/>
+                    <constraint firstItem="Cxm-XB-w6w" firstAttribute="leading" secondItem="lCp-et-Zs1" secondAttribute="leading" id="Bvd-pX-qDP"/>
                     <constraint firstItem="Cxm-XB-w6w" firstAttribute="top" secondItem="lCp-et-Zs1" secondAttribute="bottom" constant="21" id="Lsx-Mg-Sqx"/>
                     <constraint firstItem="nwF-uQ-7za" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="MvI-Nm-2Hs"/>
-                    <constraint firstAttribute="trailing" secondItem="Cxm-XB-w6w" secondAttribute="trailing" id="YwJ-wS-C5a"/>
                     <constraint firstItem="Cxm-XB-w6w" firstAttribute="top" secondItem="nwF-uQ-7za" secondAttribute="bottom" constant="19" id="cc9-Yz-JKN"/>
                     <constraint firstItem="lCp-et-Zs1" firstAttribute="centerY" secondItem="nwF-uQ-7za" secondAttribute="centerY" id="fz3-Zf-FEa"/>
                     <constraint firstItem="nwF-uQ-7za" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="gPc-Ka-u3Q"/>
+                    <constraint firstItem="Cxm-XB-w6w" firstAttribute="trailing" secondItem="nwF-uQ-7za" secondAttribute="trailing" id="guM-9R-cqt"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Cxm-XB-w6w" secondAttribute="bottom" constant="13.666666666666671" id="iof-BC-Ewv"/>
                     <constraint firstItem="lCp-et-Zs1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ztD-KW-2fo"/>
                 </constraints>
