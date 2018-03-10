@@ -222,11 +222,19 @@ public class VeloxDownloadManager : NSObject,URLSessionDelegate,URLSessionDownlo
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
         }
-
+        
+        if(VeloxDownloadManager.downloadInstanceDictionary == nil)
+        {
+            VeloxDownloadManager.downloadInstanceDictionary = Dictionary<String,VeloxDownloadInstance>()
+        }
         
         //print("data written \(totalBytesWritten)")
         let fileIdentifier  = downloadTask.originalRequest!.url!.lastPathComponent
         let dowloadInstace = VeloxDownloadManager.downloadInstanceDictionary![fileIdentifier]
+        guard dowloadInstace != nil else {
+            dowloadInstace?.downloadStatusClosure!(false, "Something went wrong" , NSError(domain: "Something went wrong", code: 400, userInfo: nil))
+            return
+        }
         let  progress = CGFloat.init(totalBytesWritten) / CGFloat.init(totalBytesExpectedToWrite)
         
         debugPrint("progress is   \(progress)")
@@ -250,8 +258,17 @@ public class VeloxDownloadManager : NSObject,URLSessionDelegate,URLSessionDownlo
         debugPrint("Download finished: \(location)")
         print("Download finished: \(location)")
         
+        if(VeloxDownloadManager.downloadInstanceDictionary == nil)
+        {
+            VeloxDownloadManager.downloadInstanceDictionary = Dictionary<String,VeloxDownloadInstance>()
+        }
+        
         let fileIdentifier  = downloadTask.originalRequest!.url!.lastPathComponent
         let dowloadInstace = VeloxDownloadManager.downloadInstanceDictionary![fileIdentifier]
+        guard dowloadInstace != nil else {
+            dowloadInstace?.downloadStatusClosure!(false, "Something went wrong" , NSError(domain: "Something went wrong", code: 400, userInfo: nil))
+            return
+        }
         var destinationLocation : URL  = VeloxCacheManagement.cachesDirectoryURlPath()
         
         if(dowloadInstace!.filePath.isEmpty){
@@ -361,3 +378,4 @@ public class VeloxDownloadManager : NSObject,URLSessionDelegate,URLSessionDownlo
     
     
 }
+
