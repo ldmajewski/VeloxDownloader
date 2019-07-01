@@ -61,7 +61,7 @@ public class VeloxDownloaderList: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
-    func downloadStopped(notification : Notification) {
+    @objc func downloadStopped(notification : Notification) {
         print("received a callback saying that download has to be stopped for \(notification.userInfo!)")
         
         if let userInfoFromNotification  = notification.userInfo
@@ -119,9 +119,9 @@ public class VeloxDownloaderList: UIViewController,UITableViewDelegate,UITableVi
 
                 
             }
-            let completionClosure: (Bool, String?, Error?) -> () = { (completion) in
+            let completionClosure: (Bool, String?, Error?) -> () = { (completion,errorMsg,errorArg)  in
                 print("is Download completed : \(completion)")
-                if(completion.0)
+                if(completion)
                 {
                     do
                     {
