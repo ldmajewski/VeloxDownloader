@@ -53,7 +53,7 @@ public class VeloxCacheManagement
     
    public static func createDirectoryNamed(name : URL) -> Bool {
         
-        let directory = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+        let directory = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0])
         
         
         do {
@@ -67,7 +67,7 @@ public class VeloxCacheManagement
     
    public static func cachesDirectoryURlPath() -> URL {
         
-        let cachesDirectoryURLPath = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+        let cachesDirectoryURLPath = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0])
         
         return cachesDirectoryURLPath
     }
